@@ -23,6 +23,8 @@ image_classification_camera.py --num_frames 10
 """
 import argparse
 import contextlib
+import json
+import sys
 
 from aiy.vision.inference import CameraInference
 from aiy.vision.models import image_classification
@@ -41,7 +43,18 @@ def CameraPreview(camera, enabled):
         if enabled:
             camera.stop_preview()
 
+
+def importJsonData():
+    with open("smorfia.json", "r", encoding="utf-8" ) as read_file:
+        smorfia_data = json.load(read_file)
+        #before printing we need to convert everything from unicode to ascii
+
+        smorfia=json.JSONEncoder().encode(smorfia_data)
+        print(smorfia)
+
 def main():
+    importJsonData()
+
     parser = argparse.ArgumentParser('Image classification camera inference example.')
     parser.add_argument('--num_frames', '-n', type=int, default=None,
         help='Sets the number of frames to run for, otherwise runs forever.')
@@ -56,7 +69,8 @@ def main():
          CameraInference(image_classification.model()) as inference:
         for result in inference.run(args.num_frames):
             classes = image_classification.get_classes(result, top_k=args.num_objects)
-            print(classes_info(classes))
+            print(classes)
+            print("\n")
             if classes:
                 camera.annotate_text = '%s (%.2f)' % classes[0]
 
