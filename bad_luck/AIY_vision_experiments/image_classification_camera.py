@@ -15,7 +15,7 @@
 # limitations under the License.
 """Camera image classification demo code.
 
-Runs continuous image classification on camera frames and prints detected object
+Runs continuous image classification on camera frames and s detected object
 classes.
 
 Example:
@@ -29,6 +29,10 @@ import sys
 from aiy.vision.inference import CameraInference
 from aiy.vision.models import image_classification
 from picamera import PiCamera
+
+
+smorfia_data= []#setting those two global variables to 0 because python is stupid
+visionToSmorfia_data= []
 
 def classes_info(classes):
     return ', '.join('%s (%.2f)' % pair for pair in classes)
@@ -46,11 +50,48 @@ def CameraPreview(camera, enabled):
 
 def importJsonData():
     with open("smorfia.json", "r", encoding="utf-8" ) as read_file:
+        global smorfia_data
         smorfia_data = json.load(read_file)
-        #before printing we need to convert everything from unicode to ascii
+        #before ing we need to convert everything from unicode to ascii
 
         smorfia=json.JSONEncoder().encode(smorfia_data)
-        print(smorfia)
+        (smorfia)
+
+
+
+    with open("visionToSmorfia.json", "r", encoding="utf-8" ) as read_file:
+        global visionToSmorfia_data
+        visionToSmorfia_data = json.load(read_file)
+        #before ing we need to convert everything from unicode to ascii
+        visionToSmorfia=json.JSONEncoder().encode(visionToSmorfia_data)
+        print(visionToSmorfia)
+
+def getClassIndex(className):
+    global visionToSmorfia_data
+
+    index=-1;
+
+    for classes in visionToSmorfia_data:
+        if classes["classes"][0]==className:
+            index=classes["index"]
+            return index
+    return index
+
+def getSmorfiaNumber(class_index):
+    global visionToSmorfia_data
+    smorfia_number=0;
+
+    if (visionToSmorfia_data[class_index]["smorfia"]!=None):
+        smorfia_number=visionToSmorfia_data[class_index]["smorfia"]
+
+    return(smorfia_number)
+
+def getSmorfiaLabel(number):
+    global smorfia_data
+    if number>0 and number<=90:
+        return(smorfia_data[number-1]["neopolitan"])
+    else:
+        return("je nunn' sacc")
 
 def main():
     importJsonData()
@@ -69,8 +110,21 @@ def main():
          CameraInference(image_classification.model()) as inference:
         for result in inference.run(args.num_frames):
             classes = image_classification.get_classes(result, top_k=args.num_objects)
-            print(classes)
-            print("\n")
+
+            className=classes[0][0].split('/')[0] #this is because I only want one category at the time
+            print(className)
+
+            index = getClassIndex(className)
+            print(index)
+
+            smorfia_number=getSmorfiaNumber(index)
+            print(smorfia_number)
+
+            smorfia_label=getSmorfiaLabel(smorfia_number)
+            print(smorfia_label)
+
+            print ('\n')
+
             if classes:
                 camera.annotate_text = '%s (%.2f)' % classes[0]
 
