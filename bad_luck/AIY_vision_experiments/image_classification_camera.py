@@ -26,6 +26,16 @@ import contextlib
 import json
 import sys
 
+import serial
+
+ser = serial.Serial(
+    port='/dev/ttyS0',
+    baudrate = 9600,
+    parity=serial.PARITY_NONE,
+    stopbits=serial.STOPBITS_ONE,
+    bytesize=serial.EIGHTBITS,timeout=1
+)
+
 from aiy.vision.inference import CameraInference
 from aiy.vision.models import image_classification
 from picamera import PiCamera
@@ -89,7 +99,7 @@ def getSmorfiaNumber(class_index):
 def getSmorfiaLabel(number):
     global smorfia_data
     if number>0 and number<=90:
-        return(smorfia_data[number-1]["neopolitan"])
+        return(smorfia_data[number]["neopolitan"])
     else:
         return("je nunn' sacc")
 
@@ -122,6 +132,11 @@ def main():
 
             smorfia_label=getSmorfiaLabel(smorfia_number)
             print(smorfia_label)
+
+            ser.write((str(smorfia_number)).encode())
+            ser.write(str.encode(':'))
+            ser.write(smorfia_label.encode())
+            ser.write(str.encode('\n'))
 
             print ('\n')
 
