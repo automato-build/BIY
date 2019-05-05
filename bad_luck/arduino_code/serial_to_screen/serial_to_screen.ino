@@ -12,10 +12,8 @@
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
 
-
 void setup() {
   Serial.begin(9600);
-  Serial1.begin(9600);
   
   // SSD1306_SWITCHCAPVCC = generate display voltage from 3.3V internally
   if (!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) { // Address 0x3D for 128x64
@@ -37,8 +35,8 @@ void setup() {
 
 void loop() {
 
-  if (Serial1.available() > 0){
-    String s = Serial1.readStringUntil('\n');
+  if (Serial.available() > 0){
+    String s = Serial.readStringUntil('\n');
     Serial.println(s);
     drawSentence(s);
   }
