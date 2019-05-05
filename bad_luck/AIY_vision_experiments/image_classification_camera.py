@@ -13,10 +13,13 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-"""Camera image classification demo code.
+"""
+BIY_SEE.
 
 Runs continuous image classification on camera frames and s detected object
 classes.
+
+Classes are converted to smorfia numbers sent via serial port to the display.
 
 Example:
 image_classification_camera.py --num_frames 10
