@@ -2,6 +2,9 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 0b2c2e2... cherry picking
 =======
 >>>>>>> 0b2c2e2... cherry picking
 #/bin/sh
@@ -9,12 +12,15 @@
 #!/bin/sh
 >>>>>>> 5e81d4b... last push for tonight/morning
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 #!/bin/sh
 >>>>>>> 5e81d4b... last push for tonight/morning
 =======
 #!/bin/sh
 >>>>>>> 5e81d4b... last push for tonight/morning
+=======
+>>>>>>> 0b2c2e2... cherry picking
 =======
 >>>>>>> 0b2c2e2... cherry picking
 
@@ -82,6 +88,9 @@ echo "source /usr/local/bin/virtualenvwrapper.sh" >> ~/.profile
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 0b2c2e2... cherry picking
 =======
 >>>>>>> 0b2c2e2... cherry picking
 
@@ -94,12 +103,15 @@ source ~/.profile
 source ~/.profile
 >>>>>>> 5e81d4b... last push for tonight/morning
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 source ~/.profile
 >>>>>>> 5e81d4b... last push for tonight/morning
 =======
 source ~/.profile
 >>>>>>> 5e81d4b... last push for tonight/morning
+=======
+>>>>>>> 0b2c2e2... cherry picking
 =======
 >>>>>>> 0b2c2e2... cherry picking
 
