@@ -1,0 +1,9 @@
+dev virtual env: harmonysensor_py3
+enter the virtual env: workon harmonysensor_py3
+install everything here like: pip3 install etc. etc.. 
+These will then install everything separate from main sources.
+exit the virtual env: deactivate
+
+
+services: 
+
