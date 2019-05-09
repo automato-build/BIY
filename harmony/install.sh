@@ -15,6 +15,8 @@ clear
 sleep 1
 
 echo "=> SETTING UP virtualenv and virtualenvwrapper"
+cd ..
+cd ..
 sudo pip3 install virtualenv virtualenvwrapper
 sudo pip install virtualenv virtualenvwrapper
 echo -e "\n# virtualenv and virtualenvwrapper" >> ~/.profile
@@ -24,6 +26,7 @@ echo "export VIRTUALENVWRAPPER_PYTHON3=/usr/bin/python3" >> ~/.profile
 echo "source /usr/local/bin/virtualenvwrapper.sh" >> ~/.profile
 source ~/.profile
 mkvirtualenv harmonysensor_py3 -p python3
+cd BIY/harmony/
 # source ~/.profile
 # workon harmonysensor_py3
 sleep 1
