@@ -7,7 +7,7 @@ sleep 1
 
 # installing pi power manager
 echo "=> SETTING UP SAFE POWERING UTILITY.. \n"
-sudo echo "sudo python /home/pi/Scripts/shutdown_pi.py &" >> /etc/rc.local
+sudo echo "sudo python /home/pi/BIY/harmony/Scripts/shutdown_pi.py &" >> /etc/rc.local
 
 
 echo "=> SETTING UP pip and pip3"
@@ -51,7 +51,7 @@ sleep 1
 
 
 echo "=> customizing Message of the Day file\n\n"
-sudo mv /home/pi/destiny_sensor/modified/motd /etc/
+sudo mv /home/pi/BIY/harmony/modified/motd /etc/
 sleep 1
 clear
 sleep 1
