@@ -2,7 +2,8 @@
 
 # installing pi power manager
 echo "=> SETTING UP SAFE POWERING UTILITY.. \n"
-sudo echo "sudo python /home/pi/BIY/harmony/Scripts/shutdown_pi.py &" >> /etc/rc.local
+sudo sed -i -e '$i \sudo python /home/pi/BIY/harmony/Scripts/shutdown_pi.py &\n' /etc/rc.local
+# sudo echo "sudo python /home/pi/BIY/harmony/Scripts/shutdown_pi.py &" >> /etc/rc.local
 
 
 echo "=> SETTING UP pip and pip3"
