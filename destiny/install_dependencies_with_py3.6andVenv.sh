@@ -3,6 +3,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 0b2c2e2... cherry picking
 =======
@@ -23,6 +24,9 @@
 >>>>>>> 0b2c2e2... cherry picking
 =======
 >>>>>>> 0b2c2e2... cherry picking
+=======
+#!/bin/sh
+>>>>>>> 5e81d4b... last push for tonight/morning
 
 sleep 2
 
@@ -89,6 +93,7 @@ echo "source /usr/local/bin/virtualenvwrapper.sh" >> ~/.profile
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 0b2c2e2... cherry picking
 =======
@@ -114,6 +119,9 @@ source ~/.profile
 >>>>>>> 0b2c2e2... cherry picking
 =======
 >>>>>>> 0b2c2e2... cherry picking
+=======
+source ~/.profile
+>>>>>>> 5e81d4b... last push for tonight/morning
 
 mkvirtualenv destinysensor -p python3.6
 # source ~/.profile
