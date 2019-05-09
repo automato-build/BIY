@@ -2,9 +2,19 @@
 
 # installing pi power manager
 echo "=> SETTING UP SAFE POWERING UTILITY.. \n"
-sudo sed -i -e '$i \sudo python /home/pi/BIY/harmony/Scripts/shutdown_pi.py &\n' /etc/rc.local
-# sudo echo "sudo python /home/pi/BIY/harmony/Scripts/shutdown_pi.py &" >> /etc/rc.local
+sudo cp /home/pi/BIY/harmony/modified/shutdown_pi.service /etc/systemd/system/shutdown_pi.service
+sleep 1
+chmod u+x /etc/systemd/system/shutdown_pi.service
+sleep 1
+sudo systemctl daemon-reload
+sudo systemctl enable shutdown_pi.service
+sudo systemctl start shutdown_pi.service
 
+
+
+sleep 1
+clear
+sleep 1
 
 echo "=> SETTING UP pip and pip3"
 sudo apt-get install python-pip -y
@@ -52,7 +62,7 @@ sleep 1
 
 
 echo "=> customizing Message of the Day file\n\n"
-sudo mv /home/pi/BIY/harmony/modified/motd /etc/
+sudo cp /home/pi/BIY/harmony/modified/motd /etc/motd
 sleep 1
 clear
 sleep 1
