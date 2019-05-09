@@ -12,7 +12,11 @@
     5. **_Important:_** Make sure you have at-least the sound-card attached to the PI's USB before proceeding with the next steps.
     6. In `raspi-config` disable `console over serial` and enable `hardware serial`.
     7. `chmoc u+x install_dependencies_with_py3.6andVenv.sh`
+<<<<<<< HEAD
     8. `sudo .install_dependencies_with_py3.6andVenv.sh`
+=======
+    8. `sudo ./install_dependencies_with_py3.6andVenv.sh`
+>>>>>>> 5e81d4b... last push for tonight/morning
     9. This will take some time as it first downloads, builds and installs things like python3.6 (which doesn't come in raspbian and is absent from the package distribution), install virtual env, nlp packages, configures alsa (only if it can find teh attached hardware) etc.
     10. That's 
     11. Double check after installation script has ran, that everything is properly installed. ()
