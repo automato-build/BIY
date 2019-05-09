@@ -1,10 +1,5 @@
 #!/bin/sh
 
-sudo apt-get update -y
-clear
-sleep 1
-
-
 # installing pi power manager
 echo "=> SETTING UP SAFE POWERING UTILITY.. \n"
 sudo echo "sudo python /home/pi/BIY/harmony/Scripts/shutdown_pi.py &" >> /etc/rc.local
