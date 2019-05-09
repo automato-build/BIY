@@ -14,7 +14,11 @@
     7. `chmoc u+x install_dependencies_with_py3.6andVenv.sh`
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     8. `sudo .install_dependencies_with_py3.6andVenv.sh`
+=======
+    8. `sudo ./install_dependencies_with_py3.6andVenv.sh`
+>>>>>>> 5e81d4b... last push for tonight/morning
 =======
     8. `sudo ./install_dependencies_with_py3.6andVenv.sh`
 >>>>>>> 5e81d4b... last push for tonight/morning
