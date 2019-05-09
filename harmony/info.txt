@@ -3,5 +3,6 @@ further install everything here like: 	pip3 install etc. etc.. These will then i
 exit the virtual env: 			deactivate
 
 
-services: 
-
+systemctl services: 
+  1. SAFE SHUTDOWN service: shutdown_pi.service
+	
