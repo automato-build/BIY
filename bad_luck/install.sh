@@ -6,15 +6,13 @@ sudo echo "sudo python /home/pi/BIY/harmony/Scripts/shutdown_pi.py &" >> /etc/rc
 
 
 echo "=> SETTING UP pip and pip3"
-sudo apt-get install python-pip -y
-sudo apt-get install python3-pip -y
-
+sudo apt-get install git python-pip python3-pip -y
 echo "\n=> both pip and pip3 are installed"
 sleep 1
 clear
 sleep 1
 
-echo "=> SETTING UP virtualenv and virtualenvwrapper"
+echo"=> SETTING UP virtualenv and virtualenvwrapper"
 sudo pip3 install virtualenv virtualenvwrapper
 sudo pip install virtualenv virtualenvwrapper
 echo -e "\n# virtualenv and virtualenvwrapper" >> ~/.profile
