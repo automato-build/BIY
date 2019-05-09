@@ -17,7 +17,7 @@ sleep 1
 
 
 
-echo"=> SETTING UP Serial"
+echo "=> SETTING UP Serial"
 # setup Serial over GPIO       
 # You should do before: sudo raspi-config
 # disbale console over serial
