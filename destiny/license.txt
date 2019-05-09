@@ -1,0 +1,167 @@
+      ----- 
+     |     |
+     |      --------------------------
+     |                                | 
+     |-                               |
+     |-                           ---- 
+     |-        ----------        |
+     |-       |          |       |
+     |-       |          |      -|
+     |        |          |      -|
+     |         ----------       -|
+     |                          -|
+ ----                           -|
+|                                |
+|                                |
+ --------------------------------
+ ______  __  __  __       __  __  ______  ______  ______    
+/\  == \/\ \/\ \_\ \     /\ \_\ \/\  ___\/\  __ \/\  == \   
+\ \  __<\ \ \ \____ \    \ \  __ \ \  __\\ \  __ \ \  __<   
+ \ \_____\ \_\/\_____\    \ \_\ \_\ \_____\ \_\ \_\ \_\ \_\ 
+  \/_____/\/_/\/_____/     \/_/\/_/\/_____/\/_/\/_/\/_/ /_/ 
+
+MACHINES CAN TELL DESTINIES FROM LISTENING. 
+We trained this board on INDIAN NUMEROLOGY, to make destinies
+and prophecies in any word it can hear around you.                                          
+              ---------------                                   
+A project by | automato.farm |
+              --------------- 
+Manufacturing Believes since 2019
+        
+THESE IS THE SOURCE CODES were written by Saurabh Datta, partner @ automato.farm.
+Saurabh Datta ---- [www.dattasaurabh.com, hi@dattasaurabh.com]
+Copyright (C) 2019 automato.farm - 2019 hi@automato.farm [www.automato.farm] 
+All Rights Reserved
+Unauthorized copying of this work, via any medium is strictly prohibited.
+
+-------------------------------------------------------------------------------------------
+========================== CONTRIBUTED LIBRARY USAGE CITATION ============================= 
+-------------------------------------------------------------------------------------------
+
+< ADAFRUIT MPR121 library citation>
+-----------------------------------
+The library for the MPR121 12-channel Capacitive touch sensor
+
+Designed specifically to work with the MPR121 Breakout in the Adafruit shop 
+  ----> https://www.adafruit.com/products/
+
+These sensors use I2C communicate, at least 2 pins are required 
+to interface
+
+Adafruit invests time and resources providing this open source code, 
+please support Adafruit and open-source hardware by purchasing 
+products from Adafruit!
+
+Written by Limor Fried/Ladyada for Adafruit Industries.  
+BSD license, all text above must be included in any redistribution
+*******************************************************************************************
+
+< SOFTWARE SERIAL library citation>
+-----------------------------------
+ Created back in the mists of time
+ modified 25 May 2012
+ by Tom Igoe
+ based on Mikal Hart's example
+ The example code from this library is in the public domain.
+*******************************************************************************************
+
+< PYSERIAL library citation>
+-----------------------------------
+Copyright (c) 2001-2017 Chris Liechti <cliechti@gmx.net> All Rights Reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are 
+permitted provided that the following conditions are met:
+
+Redistributions of source code must retain the above copyright notice, this list of 
+conditions and the following disclaimer. Redistributions in binary form must reproduce the 
+above copyright notice, this list of conditions and the following disclaimer in the 
+documentation and/or other materials provided with the distribution. Neither the name of 
+the copyright holder nor the names of its contributors may be used to endorse or promote 
+products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “AS IS” AND ANY EXPRESS 
+OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF 
+MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL 
+THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, 
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF 
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) 
+HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR 
+TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS 
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*******************************************************************************************
+
+< Python Speech Recognition library citation>
+---------------------------------------------
+Copyright (c) 2014-2017, Anthony Zhang <azhang9@gmail.com>
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are 
+permitted provided that the following conditions are met:
+1. Redistributions of source code must retain the above copyright notice, this list of 
+conditions and the following disclaimer.
+2. Redistributions in binary form must reproduce the above copyright notice, this list of 
+conditions and the following disclaimer in the documentation and/or other materials 
+provided with the distribution.
+3. Neither the name of the copyright holder nor the names of its contributors may be used
+to endorse or promote products derived from this software without specific prior written 
+permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY 
+EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF 
+MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL 
+THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, 
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT 
+OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) 
+HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR 
+TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS 
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+*******************************************************************************************
+
+< RPI GPIO library citation>
+---------------------------------------------
+Copyright (c) 2014-2017, Ben Croston <ben@croston.orgm>
+All rights reserved.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this 
+software and associated documentation files (the "Software"), to deal in the Software 
+without restriction, including without limitation the rights to use, copy, modify, merge, 
+publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons 
+to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or 
+substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
+INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR 
+PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE 
+FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR 
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
+DEALINGS IN THE SOFTWARE.
+*******************************************************************************************
+
+< Spacy library citation>
+---------------------------------------------
+
+The MIT License (MIT)
+
+Copyright (C) 2016-2019 ExplosionAI GmbH, 2016 spaCy GmbH, 2015 Matthew Honnibal
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+*******************************************************************************************
