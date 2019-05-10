@@ -1,4 +1,4 @@
-#!/bin/sh
+#/bin/sh
 
 sleep 2
 
@@ -60,7 +60,12 @@ echo "export WORKON_HOME=$HOME/.virtualenvs" >> ~/.profile
 echo "export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python" >> ~/.profile
 echo "export VIRTUALENVWRAPPER_PYTHON3=/usr/bin/python3.6" >> ~/.profile
 echo "source /usr/local/bin/virtualenvwrapper.sh" >> ~/.profile
+
 source ~/.profile
+# /bin/bash -c 'source ~/.bash_profile'
+# /bin/bash -c 'source ~/.profile'
+# . ~/.bash_profile
+# . ~/.profile
 
 mkvirtualenv destinysensor -p python3.6
 # source ~/.profile
