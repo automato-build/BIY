@@ -35,10 +35,10 @@ echo "export WORKON_HOME=$HOME/.virtualenvs" >> ~/.profile
 echo "export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python" >> ~/.profile
 echo "export VIRTUALENVWRAPPER_PYTHON3=/usr/bin/python3" >> ~/.profile
 echo "source /usr/local/bin/virtualenvwrapper.sh" >> ~/.profile
-source ~/.profile
+#source ~/.profile
+#/bin/bash -c 'source ~/.profile'
+. ~/.profile
 mkvirtualenv harmonysensor_py3 -p python3
-cd BIY/harmony/
-# source ~/.profile
 # workon harmonysensor_py3
 sleep 1
 clear
