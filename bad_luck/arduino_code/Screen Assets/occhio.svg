@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="32" viewBox="0 0 48 32">
+  <title>occhio</title>
+  <g id="Isolation_Mode" data-name="Isolation Mode">
+    <g id="_Group_" data-name="&lt;Group&gt;">
+      <path id="_Compound_Path_" data-name="&lt;Compound Path&gt;" d="M23.94072,3.15543c11.12918,0,23.37606,12.84388,23.37606,12.84388S35.06991,28.84456,23.94072,28.84456C12.81017,28.84456.67916,15.99932.67916,15.99932S12.81017,3.15543,23.94072,3.15543ZM32.705,15.99932A8.765,8.765,0,1,0,23.94072,24.765,8.76465,8.76465,0,0,0,32.705,15.99932Z" style="fill: #231f20"/>
+      <path id="_Compound_Path_2" data-name="&lt;Compound Path&gt;" d="M23.94072,7.235A8.765,8.765,0,1,1,15.175,15.99932,8.76465,8.76465,0,0,1,23.94072,7.235Zm1.92733,8.76432A1.87009,1.87009,0,1,0,23.998,17.87076,1.86962,1.86962,0,0,0,25.86805,15.99932Z" style="fill: #fff"/>
+      <circle id="_Path_" data-name="&lt;Path&gt;" cx="23.99797" cy="15.99966" r="1.87043" style="fill: #231f20"/>
+    </g>
+  </g>
+</svg>
