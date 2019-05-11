@@ -39,7 +39,9 @@ void loop() {
     String s = Serial.readStringUntil('\n');
     Serial.println(s);
     drawSentence(s);
+    Serial.println();
   }
+  Serial.print(".");
 }
 
 void drawSentence(String text) {
