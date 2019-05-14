@@ -1,3 +1,0 @@
-systemctl services: 
-  1. SAFE SHUTDOWN service: shutdown_pi.service
-	
