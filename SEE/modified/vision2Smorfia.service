@@ -9,7 +9,7 @@ Restart=always
 RestartSec=5
 User=root
 WorkingDirectory=/home/pi/BIY/bad_luck/AIY_vision/
-ExecStart=/usr/bin/python /home/pi/BIY/bad_luck/AIY_vision/image_classification_camera.py
+ExecStart=/usr/bin/python3 /home/pi/BIY/bad_luck/AIY_vision/image_classification_camera.py
 
 [Install]
 WantedBy=multi-user.target
