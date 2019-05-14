@@ -47,6 +47,9 @@ from picamera import PiCamera
 smorfia_data= []#setting those two global variables to 0 because python is stupid
 visionToSmorfia_data= []
 
+import os
+dir = os.path.dirname(__file__)
+
 def classes_info(classes):
     return ', '.join('%s (%.2f)' % pair for pair in classes)
 
@@ -62,7 +65,7 @@ def CameraPreview(camera, enabled):
 
 
 def importJsonData():
-    with open("smorfia.json", "r", encoding="utf-8" ) as read_file:
+    with open(os.path.join(dir, "./smorfia.json") , "r", encoding="utf-8" ) as read_file:
         global smorfia_data
         smorfia_data = json.load(read_file)
         #before ing we need to convert everything from unicode to ascii
@@ -70,7 +73,7 @@ def importJsonData():
         smorfia=json.JSONEncoder().encode(smorfia_data)
         (smorfia)
 
-    with open("visionToSmorfia.json", "r", encoding="utf-8" ) as read_file:
+    with open(os.path.join(dir, "./visionToSmorfia.json"), "r", encoding="utf-8" ) as read_file:
         global visionToSmorfia_data
         visionToSmorfia_data = json.load(read_file)
         #before ing we need to convert everything from unicode to ascii
