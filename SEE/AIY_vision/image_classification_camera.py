@@ -28,6 +28,8 @@ import argparse
 import contextlib
 import json
 import sys
+import time
+
 
 import serial
 
@@ -119,9 +121,10 @@ def main():
         help='Enable camera preview')
     args = parser.parse_args()
 
-    with PiCamera(sensor_mode=4, framerate=30) as camera, \
-         CameraPreview(camera, enabled=args.preview), \
-         CameraInference(image_classification.model()) as inference:
+    with PiCamera(sensor_mode=4, framerate=10) as camera, \
+        CameraPreview(camera, enabled=args.preview), \
+        CameraInference(image_classification.model()) as inference:
+        camera.vflip=True;
         for result in inference.run(args.num_frames):
             classes = image_classification.get_classes(result, top_k=args.num_objects)
 
@@ -143,6 +146,7 @@ def main():
             ser.write(str.encode('\n'))
 
             print ('\n')
+            time.sleep(1)   # Delays for 5 seconds. You can also use a float value.
 
             if classes:
                 camera.annotate_text = '%s (%.2f)' % classes[0]

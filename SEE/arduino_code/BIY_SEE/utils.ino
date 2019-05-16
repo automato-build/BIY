@@ -29,14 +29,7 @@ boolean readButton() {
 	return false;
 }
 
-String getStringFromPi(){
-	if(stringComplete) {
-		stringComplete=false;
-		return(lastCommandReceived);
-	}else{
-		return "";
-	}
-}
+
 
 void checkDataFromPi(){
 	if (rpi.available()) {

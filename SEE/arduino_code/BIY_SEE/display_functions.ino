@@ -4,6 +4,10 @@ uint16_t w_number, h_number;
 int16_t x1_label, y1_label;
 uint16_t w_label, h_label;
 
+int labelPosition=SCREEN_WIDTH;
+int updateInterval=100;
+long lastTImeScroll=0;
+
 
 void initScreen() {
 	if (!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) {
@@ -19,14 +23,22 @@ void initScreen() {
 
 void calculateNumberSize(String s){
 	display.getTextBounds(s, 0, 0, &x1_number, &y1_number, &w_number, &h_number);
-	Serial.print("N_width: ");
-	Serial.println(w_number);
+	Serial.println(s);
+	Serial.print(F("N_size: "));
+	Serial.print(w_number);
+	Serial.print(F(" "));
+	Serial.println(h_number);
+
+
 }
 
 void calculateLabelSize(String s){
 	display.getTextBounds(s, 0, 0, &x1_label, &y1_label, &w_label, &h_label);
-	Serial.print("L_width: ");
-	Serial.println(w_label);
+	Serial.println(s);
+	Serial.print(F("L_width: "));
+	Serial.print(w_label);
+	Serial.print(F(" "));
+	Serial.println(h_label);
 }
 
 
@@ -86,7 +98,12 @@ void drawDreaming() {
 }
 
 
-void showResult(int number, String label) {
+void showResult() {
+	Serial.print(F("result: "));
+	Serial.print(SmorfiaNumber);
+	Serial.print(F(" - "));
+	Serial.println(SmorfiaLabel);
+
 	display.clearDisplay();
 
 	display.setTextSize(1);
@@ -95,24 +112,24 @@ void showResult(int number, String label) {
 	display.drawCircle(display.width() / 2, (display.height() / 2) - 13, 17, WHITE);
 
 	display.setTextSize(2);
-	String n=""+number+'\n';
-	String l=""+label+'\n';
-	calculateNumberSize(n);
-	calculateLabelSize(l);
+
+	calculateNumberSize(SmorfiaNumber);
+	calculateLabelSize(SmorfiaLabel);
 
 	//calculate cursor position to align the number to the center
 	int cursorPosition_x=SCREEN_WIDTH/2-w_number/2;
 	int cursorPosition_y=12;
 
 	display.setCursor(cursorPosition_x, cursorPosition_y);
-	display.println(number);
+	display.println(SmorfiaNumber);
 
 	//calculate cursor position to align the label to the center of the screen
 	cursorPosition_x=SCREEN_WIDTH/2-w_label/2;
 	cursorPosition_y=47;
 
-	display.setCursor(cursorPosition_x, 47);             // Start at top-left corner
-	display.println(label);
+	labelPosition=SCREEN_WIDTH;
+	display.setCursor(labelPosition, 47);             // Start at top-left corner
+	display.println(SmorfiaLabel);
 
 	display.display();
 }
@@ -139,4 +156,32 @@ void showIconsAnimation() {
 		}
 		lastFrameChanged = millis();
 	}
+}
+
+
+
+
+void scrollScreenAnimation(){
+	if (millis()-lastTImeScroll>updateInterval) {
+		int16_t minXPosition=(w_label-30)* -1;
+
+		if (labelPosition>minXPosition) {
+			labelPosition-=4;
+		}else{
+			labelPosition=SCREEN_WIDTH;
+		}
+		Serial.print(minXPosition);
+		Serial.print(F(" - "));
+		Serial.println(labelPosition);
+
+
+		display.fillRect(0, SCREEN_HEIGHT-20,SCREEN_WIDTH, 20, BLACK);
+		display.setCursor(labelPosition, 47);             // Start at top-left corner
+		display.println(SmorfiaLabel);
+
+		display.display();
+
+		lastTImeScroll=millis();
+	}
+
 }
