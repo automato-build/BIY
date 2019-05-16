@@ -31,6 +31,20 @@ import sys
 import time
 
 
+import RPi.GPIO as GPIO
+import time
+import os
+
+# Use the Broadcom SOC Pin numbers
+# Setup the Pin with Internal pullups enabled and PIN in reading mode.
+
+SHUT_PIN = 18
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(SHUT_PIN, GPIO.IN, pull_up_down = GPIO.PUD_UP)
+
+
+
+# then do the rest
 import serial
 
 ser = serial.Serial(
@@ -40,6 +54,39 @@ ser = serial.Serial(
     stopbits=serial.STOPBITS_ONE,
     bytesize=serial.EIGHTBITS,timeout=1
 )
+
+def Shutdown():
+    ser.write(("BYE").encode())
+    ser.write(str.encode('\n'))
+    ser.close()
+    os.system("sudo shutdown -h now")
+
+
+def Reboot():
+    ser.write(("BYE").encode())
+    ser.write(str.encode('\n'))
+    ser.close()
+    os.system("sudo reboot")
+
+# Our function on what to do when the button is pressed
+def shutdown_reboot(channel):
+    global buttonStatus
+    start_time = time.time()
+
+    while GPIO.input(channel) == 0: # Wait for the button up
+        pass
+
+    buttonTime = time.time() - start_time    # How long was the button down?
+
+    if buttonTime >= 5: #if press for more than 5 seconds reboot
+        Shutdown()
+    elif buttonTime >= .1: #else reboot the pi
+        Reboot()
+
+# Add our function to execute when the button pressed event happens
+GPIO.add_event_detect(SHUT_PIN, GPIO.FALLING, callback = shutdown_reboot, bouncetime = 2000)
+
+
 
 from aiy.vision.inference import CameraInference
 from aiy.vision.models import image_classification
@@ -112,6 +159,9 @@ def getSmorfiaLabel(number):
 def main():
     importJsonData()
 
+    ser.write(("START").encode())
+    ser.write(str.encode('\n'))
+
     parser = argparse.ArgumentParser('Image classification camera inference example.')
     parser.add_argument('--num_frames', '-n', type=int, default=None,
         help='Sets the number of frames to run for, otherwise runs forever.')
@@ -120,6 +170,8 @@ def main():
     parser.add_argument('--nopreview', dest='preview', action='store_false', default=True,
         help='Enable camera preview')
     args = parser.parse_args()
+
+
 
     with PiCamera(sensor_mode=4, framerate=10) as camera, \
         CameraPreview(camera, enabled=args.preview), \
@@ -150,6 +202,15 @@ def main():
 
             if classes:
                 camera.annotate_text = '%s (%.2f)' % classes[0]
+
+def closeEverything():
+    print("bye bye!")
+    ser.write(("BYE").encode())
+    ser.write(str.encode('\n'))
+    ser.close()
+
+import atexit
+atexit.register(closeEverything)
 
 if __name__ == '__main__':
     main()
