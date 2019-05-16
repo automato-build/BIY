@@ -23,22 +23,10 @@ void initScreen() {
 
 void calculateNumberSize(String s){
 	display.getTextBounds(s, 0, 0, &x1_number, &y1_number, &w_number, &h_number);
-	Serial.println(s);
-	Serial.print(F("N_size: "));
-	Serial.print(w_number);
-	Serial.print(F(" "));
-	Serial.println(h_number);
-
-
 }
 
 void calculateLabelSize(String s){
 	display.getTextBounds(s, 0, 0, &x1_label, &y1_label, &w_label, &h_label);
-	Serial.println(s);
-	Serial.print(F("L_width: "));
-	Serial.print(w_label);
-	Serial.print(F(" "));
-	Serial.println(h_label);
 }
 
 
@@ -99,10 +87,10 @@ void drawDreaming() {
 
 
 void showResult() {
-	Serial.print(F("result: "));
+
 	Serial.print(SmorfiaNumber);
-	Serial.print(F(" - "));
-	Serial.println(SmorfiaLabel);
+	Serial.print(F("-"));
+	Serial.println(LabelToDisplay);
 
 	display.clearDisplay();
 
@@ -114,7 +102,7 @@ void showResult() {
 	display.setTextSize(2);
 
 	calculateNumberSize(SmorfiaNumber);
-	calculateLabelSize(SmorfiaLabel);
+	calculateLabelSize(LabelToDisplay);
 
 	//calculate cursor position to align the number to the center
 	int cursorPosition_x=SCREEN_WIDTH/2-w_number/2;
@@ -129,7 +117,7 @@ void showResult() {
 
 	labelPosition=SCREEN_WIDTH;
 	display.setCursor(labelPosition, 47);             // Start at top-left corner
-	display.println(SmorfiaLabel);
+	display.println(LabelToDisplay);
 
 	display.display();
 }
@@ -170,14 +158,9 @@ void scrollScreenAnimation(){
 		}else{
 			labelPosition=SCREEN_WIDTH;
 		}
-		Serial.print(minXPosition);
-		Serial.print(F(" - "));
-		Serial.println(labelPosition);
-
-
 		display.fillRect(0, SCREEN_HEIGHT-20,SCREEN_WIDTH, 20, BLACK);
 		display.setCursor(labelPosition, 47);             // Start at top-left corner
-		display.println(SmorfiaLabel);
+		display.println(LabelToDisplay);
 
 		display.display();
 

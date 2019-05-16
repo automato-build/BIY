@@ -50,6 +50,7 @@ boolean stringComplete=false;
 
 String SmorfiaNumber="0";
 String SmorfiaLabel="";
+String LabelToDisplay="";
 
 void setup() {
 	pinMode(switchModePin, INPUT_PULLUP);
@@ -79,18 +80,18 @@ void parseCommand(){
 	}else if (lastCommandReceived=="START") {
 
 	}else{
-		Serial.print(F("parsing "));
-		Serial.println(lastCommandReceived);
+		// Serial.print(F("parsing "));
+		// Serial.println(lastCommandReceived);
 
 		int separatorPosition=lastCommandReceived.indexOf(':');
 
 		SmorfiaNumber=lastCommandReceived.substring(0,separatorPosition).toInt();
 		SmorfiaLabel=lastCommandReceived.substring(separatorPosition+1);
 
-		Serial.print(F("number: "));
-		Serial.println(SmorfiaNumber);
-		Serial.print(F("label: "));
-		Serial.println(SmorfiaLabel);
+		// Serial.print(F("number: "));
+		// Serial.println(SmorfiaNumber);
+		// Serial.print(F("label: "));
+		// Serial.println(SmorfiaLabel);
 	}
 }
 
@@ -114,6 +115,11 @@ void stateMachine() {
 		showIconsAnimation();
 		if (timeExpired()) {     //after a while
 			state = 3;
+
+			LabelToDisplay=SmorfiaLabel;
+			Serial.println(LabelToDisplay);
+			Serial.println(SmorfiaLabel);
+
 			showResult();      // I shoow la mano n.5
 			startTimer(12000);    //I start a timer for 5 seconds
 		}
