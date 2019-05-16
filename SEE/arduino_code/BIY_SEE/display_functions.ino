@@ -57,6 +57,16 @@ void drawHoe() {
 	display.display();
 }
 
+
+void drawLogo() {
+	display.clearDisplay();
+	display.drawBitmap(
+		(display.width()  - logo_size[0] ) / 2,
+		(display.height() - logo_size[1]) / 2,
+		logo, logo_size[0], logo_size[0], WHITE);
+	display.display();
+}
+
 void drawSplash() {
 	display.clearDisplay();
 	display.drawBitmap(
@@ -82,7 +92,24 @@ void drawDreaming() {
 	display.println(F("..."));
 
 	display.display();
+}
 
+void drawBye() {
+	display.clearDisplay();
+
+	display.setTextSize(2);              // Normal 1:1 pixel scale
+	display.setTextColor(WHITE);         // Draw white text
+
+	display.setCursor(64-(6*6)/2, 15);             // Start at top-left corner
+	display.println(F("BYE BYE"));
+
+	display.setCursor(64-(6*3)/2, 35);             // Start at top-left corner
+	display.println(F("BIY"));
+
+	display.setCursor(58, 45);             // Start at top-left corner
+	display.println(F("..."));
+
+	display.display();
 }
 
 

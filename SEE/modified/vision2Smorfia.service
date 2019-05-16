@@ -1,5 +1,5 @@
 [Unit]
-Description=converts images from the camera in to Smorfia numbers
+Description=vision2smorfia
 After=network.target
 StartLimitIntervalSec=0
 
@@ -8,7 +8,7 @@ Type=simple
 Restart=always
 RestartSec=5
 User=root
-ExecStart=/usr/bin/python3 /home/pi/BIY/SEE/AIY_vision/image_classification_camera.py
+ExecStart=/usr/bin/python3 /home/pi/BIY/SEE/AIY_vision/vision2smorfia.py
 
 [Install]
 WantedBy=multi-user.target

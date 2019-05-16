@@ -1,17 +1,17 @@
 #!/bin/sh
 
 # installing pi power manager
-echo "=> SETTING UP SAFE POWERING UTILITY.. \n"
+#echo "=> SETTING UP SAFE POWERING UTILITY.. \n"
 
-sudo cp /home/pi/BIY/SEE/modified/shutdown_pi.service /etc/systemd/system/shutdown_pi.service
-sleep 1
-chmod u+x /etc/systemd/system/shutdown_pi.service
-sleep 1
-sudo systemctl daemon-reload
-sudo systemctl enable shutdown_pi.service
-sudo systemctl start shutdown_pi.service
+#sudo cp /home/pi/BIY/SEE/modified/shutdown_pi.service /etc/systemd/system/shutdown_pi.service
+#sleep 1
+#chmod u+x /etc/systemd/system/shutdown_pi.service
+#sleep 1
+#sudo systemctl daemon-reload
+#sudo systemctl enable shutdown_pi.service
+#sudo systemctl start shutdown_pi.service
 
-sleep 1
+#sleep 1
 
 
 

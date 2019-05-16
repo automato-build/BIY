@@ -39,6 +39,8 @@ int framesCount = 3;
 long lastFrameChanged = 0;
 int changeFrameSpeed = 250;
 
+int started=false;
+
 /*
    RASPBBERRY PI COMMUNICATION
  */
@@ -61,11 +63,9 @@ void setup() {
 	pinMode(switchModePin, INPUT_PULLUP);
 	pinMode(OUTNUMPIN, OUTPUT);
 	pinMode(OUTBOOLPIN, OUTPUT);
-
-	Serial.begin(9600);
 	initScreen();
-	state = 0;
 	drawSplash();
+	Serial.begin(9600);
 	rpi.begin(9600);
 }
 
@@ -83,11 +83,22 @@ void loop() {
 }
 
 void parseCommand(){
-	if (lastCommandReceived=="BYE") {
+	if(strcmp(lastCommandReceived, "BYE") == 0) {
+		Serial.println("bye bye!");
+		started=false;
+		drawBye();
+		state=4;
+		startTimer(10000);
 
-	}else if (lastCommandReceived=="START") {
+	}else if (strcmp(lastCommandReceived, "START") == 0) {
+		Serial.println("starting now");
+		started=true;
+		initScreen();
+		state = 0;
+		drawSplash();
 
 	}else{
+		started=true;
 		// Serial.print(F("parsing "));
 		// Serial.println(lastCommandReceived);
 
@@ -120,7 +131,7 @@ void parseCommand(){
 void stateMachine() {
 	switch (state) {
 	case 0:    //I'm showing the splash screen
-		if (readButton()||(timeExpired)) {
+		if (readButton()||started) {
 			drawDreaming();
 			startTimer(2000);
 			state = 1;
@@ -149,6 +160,21 @@ void stateMachine() {
 			drawDreaming();
 			startTimer(2000);
 			state = 1;
+		}
+		break;
+
+	case 4:    //I'm showign BYE BYE
+		if (timeExpired()) {       //after a while
+			startTimer(2000);
+			state = 5;
+			drawLogo();
+		}
+		break;
+
+	case 5:     //I'm showing automato.farm logo
+		if (timeExpired()) {        //after a while turn off the screen
+			display.clearDisplay();
+			display.display();
 		}
 		break;
 	}
