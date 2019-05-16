@@ -48,7 +48,7 @@ String cmdFromPI="";
 String lastCommandReceived="";
 boolean stringComplete=false;
 
-int SmorfiaNumber=0;
+String SmorfiaNumber="0";
 String SmorfiaLabel="";
 
 void setup() {
@@ -64,24 +64,33 @@ void loop() {
 	readButton();
 	//Serial.println(state);
 	checkDataFromPi();
-	stateMachine();
-	String command=getStringFromPi();
-	if(command!="") {
-		parseCommand (command);
+
+	if (lastCommandReceived!="" && stringComplete) {
+		parseCommand ();
+		stringComplete=false;
 	}
+
+	stateMachine();
 }
 
-void parseCommand(String s){
-	if (s=="BYE") {
+void parseCommand(){
+	if (lastCommandReceived=="BYE") {
 
-	}else if (s=="START") {
+	}else if (lastCommandReceived=="START") {
 
 	}else{
-		//Serial.println(s);
-		int separatorPosition= s.indexOf(":");
-		String number=s.substring(0,separatorPosition);
-		SmorfiaNumber=number.toInt();
-		SmorfiaLabel= s.substring(separatorPosition+1);
+		Serial.print(F("parsing "));
+		Serial.println(lastCommandReceived);
+
+		int separatorPosition=lastCommandReceived.indexOf(':');
+
+		SmorfiaNumber=lastCommandReceived.substring(0,separatorPosition).toInt();
+		SmorfiaLabel=lastCommandReceived.substring(separatorPosition+1);
+
+		Serial.print(F("number: "));
+		Serial.println(SmorfiaNumber);
+		Serial.print(F("label: "));
+		Serial.println(SmorfiaLabel);
 	}
 }
 
@@ -89,7 +98,7 @@ void parseCommand(String s){
 void stateMachine() {
 	switch (state) {
 	case 0:    //I'm showing the splash screen
-		if (readButton()||(timeExpired&&stringComplete)) {
+		if (readButton()||(timeExpired)) {
 			drawDreaming();
 			startTimer(2000);
 			state = 1;
@@ -105,11 +114,12 @@ void stateMachine() {
 		showIconsAnimation();
 		if (timeExpired()) {     //after a while
 			state = 3;
-			showResult(SmorfiaNumber,SmorfiaLabel);      // I shoow la mano n.5
-			startTimer(5000);    //I start a timer for 5 seconds
+			showResult();      // I shoow la mano n.5
+			startTimer(12000);    //I start a timer for 5 seconds
 		}
 		break;
-	case 3:    //I'm showign the resilting number
+	case 3:    //I'm showign the resUlting number
+		scrollScreenAnimation(); //UPDATE THE POSITION OF THE LABEL (IT SHOULD BE SCROLLING)
 		if (timeExpired()) {       //after a while
 			drawDreaming();
 			startTimer(2000);
