@@ -87,11 +87,6 @@ void drawDreaming() {
 
 
 void showResult() {
-
-	Serial.print(SmorfiaNumber);
-	Serial.print(F("-"));
-	Serial.println(LabelToDisplay);
-
 	display.clearDisplay();
 
 	display.setTextSize(1);
@@ -151,7 +146,7 @@ void showIconsAnimation() {
 
 void scrollScreenAnimation(){
 	if (millis()-lastTImeScroll>updateInterval) {
-		int16_t minXPosition=(w_label-30)* -1;
+		int16_t minXPosition=(w_label)* -1;
 
 		if (labelPosition>minXPosition) {
 			labelPosition-=4;

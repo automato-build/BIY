@@ -8,6 +8,9 @@ boolean oldButtonState;
 
 int state = 0;
 
+int OUTNUMPIN=9;
+int OUTBOOLPIN=13;
+
 /*
    Init oled screen
  */
@@ -44,16 +47,21 @@ int RPI_RX= 11;
 int RPI_TX= 10;
 SoftwareSerial rpi(RPI_RX, RPI_TX); // RX, TX
 
-String cmdFromPI="";
-String lastCommandReceived="";
+char cmdFromPI[30];
+char lastCommandReceived[30];
+
 boolean stringComplete=false;
 
-String SmorfiaNumber="0";
-String SmorfiaLabel="";
-String LabelToDisplay="";
+char SmorfiaNumber[10];
+char LabelToDisplay[30];
+
+char SmorfiaLabel[30];
 
 void setup() {
 	pinMode(switchModePin, INPUT_PULLUP);
+	pinMode(OUTNUMPIN, OUTPUT);
+	pinMode(OUTBOOLPIN, OUTPUT);
+
 	Serial.begin(9600);
 	initScreen();
 	state = 0;
@@ -66,7 +74,7 @@ void loop() {
 	//Serial.println(state);
 	checkDataFromPi();
 
-	if (lastCommandReceived!="" && stringComplete) {
+	if (lastCommandReceived[0]!=0 && stringComplete) {
 		parseCommand ();
 		stringComplete=false;
 	}
@@ -83,15 +91,28 @@ void parseCommand(){
 		// Serial.print(F("parsing "));
 		// Serial.println(lastCommandReceived);
 
-		int separatorPosition=lastCommandReceived.indexOf(':');
-
-		SmorfiaNumber=lastCommandReceived.substring(0,separatorPosition).toInt();
-		SmorfiaLabel=lastCommandReceived.substring(separatorPosition+1);
+		//find the separator position
+		int separatorPosition=0;
+		for (int i=0; i<30; i++) {
+			if (lastCommandReceived[i]==':') {
+				separatorPosition=i;
+				break;
+			}
+		}
+		//copy the first string
+		for (int i=0; i<separatorPosition; i++) {
+			SmorfiaNumber[i]=lastCommandReceived[i];
+		}
+		//copy the second string
+		for (int i=0; i<30; i++) {
+			SmorfiaLabel[i]=lastCommandReceived[i+separatorPosition+1];
+		}
 
 		// Serial.print(F("number: "));
 		// Serial.println(SmorfiaNumber);
 		// Serial.print(F("label: "));
-		// Serial.println(SmorfiaLabel);
+		// Serial.println(SmorfiaLabelC);
+
 	}
 }
 
@@ -116,11 +137,9 @@ void stateMachine() {
 		if (timeExpired()) {     //after a while
 			state = 3;
 
-			LabelToDisplay=SmorfiaLabel;
-			Serial.println(LabelToDisplay);
-			Serial.println(SmorfiaLabel);
-
+			strcpy(LabelToDisplay, SmorfiaLabel);
 			showResult();      // I shoow la mano n.5
+			beliefOut();
 			startTimer(12000);    //I start a timer for 5 seconds
 		}
 		break;
