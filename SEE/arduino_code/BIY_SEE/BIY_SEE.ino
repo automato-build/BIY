@@ -1,7 +1,6 @@
 /*
    Init board buttons and variables
  */
-int switchModePin = 12;
 
 boolean buttonState;
 boolean oldButtonState;
@@ -60,18 +59,15 @@ char LabelToDisplay[30];
 char SmorfiaLabel[30];
 
 void setup() {
-	pinMode(switchModePin, INPUT_PULLUP);
 	pinMode(OUTNUMPIN, OUTPUT);
 	pinMode(OUTBOOLPIN, OUTPUT);
 	initScreen();
 	drawSplash();
 	Serial.begin(9600);
 	rpi.begin(9600);
-}
+} 
 
 void loop() {
-	readButton();
-	//Serial.println(state);
 	checkDataFromPi();
 
 	if (lastCommandReceived[0]!=0 && stringComplete) {
@@ -83,6 +79,10 @@ void loop() {
 }
 
 void parseCommand(){
+  Serial.print("RECEIVED ->");
+
+  Serial.println(lastCommandReceived);
+  
 	if(strcmp(lastCommandReceived, "BYE") == 0) {
 		Serial.println("bye bye!");
 		started=false;
@@ -131,7 +131,7 @@ void parseCommand(){
 void stateMachine() {
 	switch (state) {
 	case 0:    //I'm showing the splash screen
-		if (readButton()||started) {
+		if (started) {
 			drawDreaming();
 			startTimer(2000);
 			state = 1;

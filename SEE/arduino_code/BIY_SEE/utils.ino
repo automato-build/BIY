@@ -19,15 +19,6 @@ void startTimer(int t){
 	lastTimerStarted=millis();
 }
 
-boolean readButton() {
-	buttonState = digitalRead(switchModePin);
-	if (!buttonState && oldButtonState) {
-		delay(50);
-		return true;
-	}
-	oldButtonState = buttonState;
-	return false;
-}
 
 
 

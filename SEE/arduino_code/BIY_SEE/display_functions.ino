@@ -14,6 +14,7 @@ void initScreen() {
 		Serial.println(F("SSD1306 allocation failed"));
 		for (;;);   // Don't proceed, loop forever
 	}
+
 	display.clearDisplay();
 	display.display();
 	drawHorns();
@@ -100,14 +101,12 @@ void drawBye() {
 	display.setTextSize(2);              // Normal 1:1 pixel scale
 	display.setTextColor(WHITE);         // Draw white text
 
-	display.setCursor(64-(6*6)/2, 15);             // Start at top-left corner
+	display.setCursor(64-(6*7)/2, 15);             // Start at top-left corner
 	display.println(F("BYE BYE"));
 
 	display.setCursor(64-(6*3)/2, 35);             // Start at top-left corner
 	display.println(F("BIY"));
 
-	display.setCursor(58, 45);             // Start at top-left corner
-	display.println(F("..."));
 
 	display.display();
 }
