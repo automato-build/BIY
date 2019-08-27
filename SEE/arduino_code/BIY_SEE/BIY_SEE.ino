@@ -65,7 +65,7 @@ void setup() {
 	drawSplash();
 	Serial.begin(9600);
 	rpi.begin(9600);
-} 
+}
 
 void loop() {
 	checkDataFromPi();
@@ -79,10 +79,10 @@ void loop() {
 }
 
 void parseCommand(){
-  Serial.print("RECEIVED ->");
+	Serial.print("RECEIVED ->");
 
-  Serial.println(lastCommandReceived);
-  
+	Serial.println(lastCommandReceived);
+
 	if(strcmp(lastCommandReceived, "BYE") == 0) {
 		Serial.println("bye bye!");
 		started=false;

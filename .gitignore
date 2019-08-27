@@ -1,2 +1,5 @@
-destiny/python_scripts/api_creds/
+destiny/python_scripts/api_creds/wit_ai_creds.json
+destiny/python_scripts/api_creds/houndify_creds.json
+destiny/python_scripts/api_creds/google_creds.json
+destiny/python_scripts/api_creds/azzure_creds.json
 .DS_Store
